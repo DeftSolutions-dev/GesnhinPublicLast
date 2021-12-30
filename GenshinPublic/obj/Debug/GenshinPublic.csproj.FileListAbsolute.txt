@@ -1,0 +1,15 @@
+C:\Users\dfffa\Documents\198\GenshinPublic\GenshinPublic\bin\Debug\GenshinPublic.exe.config
+C:\Users\dfffa\Documents\198\GenshinPublic\GenshinPublic\bin\Debug\GenshinPublic.exe
+C:\Users\dfffa\Documents\198\GenshinPublic\GenshinPublic\bin\Debug\GenshinPublic.pdb
+C:\Users\dfffa\Documents\198\GenshinPublic\GenshinPublic\obj\Debug\GenshinPublic.csprojAssemblyReference.cache
+C:\Users\dfffa\Documents\198\GenshinPublic\GenshinPublic\obj\Debug\GenshinPublic.csproj.CoreCompileInputs.cache
+C:\Users\dfffa\Documents\198\GenshinPublic\GenshinPublic\obj\Debug\GenshinPublic.exe
+C:\Users\dfffa\Documents\198\GenshinPublic\GenshinPublic\obj\Debug\GenshinPublic.pdb
+C:\Users\Alios\Desktop\Нужное\Cheats\198\GenshinPublic\GenshinPublic\bin\Debug\GenshinPublic.exe.config
+C:\Users\Alios\Desktop\Нужное\Cheats\198\GenshinPublic\GenshinPublic\bin\Debug\GenshinPublic.exe
+C:\Users\Alios\Desktop\Нужное\Cheats\198\GenshinPublic\GenshinPublic\bin\Debug\GenshinPublic.pdb
+C:\Users\Alios\Desktop\Нужное\Cheats\198\GenshinPublic\GenshinPublic\obj\Debug\GenshinPublic.csproj.AssemblyReference.cache
+C:\Users\Alios\Desktop\Нужное\Cheats\198\GenshinPublic\GenshinPublic\obj\Debug\GenshinPublic.csproj.SuggestedBindingRedirects.cache
+C:\Users\Alios\Desktop\Нужное\Cheats\198\GenshinPublic\GenshinPublic\obj\Debug\GenshinPublic.csproj.CoreCompileInputs.cache
+C:\Users\Alios\Desktop\Нужное\Cheats\198\GenshinPublic\GenshinPublic\obj\Debug\GenshinPublic.exe
+C:\Users\Alios\Desktop\Нужное\Cheats\198\GenshinPublic\GenshinPublic\obj\Debug\GenshinPublic.pdb
