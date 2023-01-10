@@ -28,18 +28,14 @@ namespace GenshinPublic
 				WebClient webClient = new WebClient();
 				webClient.DownloadFile(new Uri("https://github.com/DeftSolutions-dev/HackGenshin/raw/main/FuckYou/ggAC.exe"), Path.Combine(Path.GetTempPath(), "Bypass.exe"));
 				if (File.Exists(Path.Combine(Path.GetTempPath(), "Bypass.exe")) && new FileInfo(Path.Combine(Path.GetTempPath(), "Bypass.exe")).Length > 10L)
-				{
 					flag = true;
-				}
 				else
 				{
 					Console.WriteLine("Dll could not be downloaded, check your Anti Virus!");
 					Console.ReadKey();
 				}
 				if (flag)
-				{
 					Process.Start(Path.Combine(Path.GetTempPath(), "Bypass.exe"));
-				}
 			}
 			catch (WebException)
 			{
@@ -47,9 +43,7 @@ namespace GenshinPublic
 				Console.ReadKey();
 			}
 			catch (Exception arg)
-			{
 				Console.WriteLine("Error! " + arg); 
-			} 
 		}
 		private static void RandomName()
 		{
@@ -72,14 +66,13 @@ namespace GenshinPublic
 		public static void Main(string[] args)
 		{
 			RandomName();
-			if (Process.GetProcessesByName("GenshinImpact").Length != 0)
-			{
-				Bypass();
-				Console.WriteLine("Bypass Anti-Cheat...");
-				LoadFile();
-				return;
+			if(Process.GetProcessesByName("GenshinImpact").Length != 0 || Process.GetProcessesByName("YuanShen").Length != 0){
+			if(Process.GetProcessesByName("GenshinImpact").Length != 0)
+			   _checkGameProc = 1;
+			else if(Process.GetProcessesByName("YuanShen").Length != 0)
+			        _checkGameProc = 2;
 			}
-			if(Process.GetProcessesByName("YuanShen").Length != 0)
+			if(_checkGameProc==1 || _checkGameProc==2)
 			{
 				Bypass();
 				Console.WriteLine("Bypass Anti-Cheat...");
@@ -90,6 +83,7 @@ namespace GenshinPublic
 			Console.WriteLine("Open Genshin Impact BRO...");
 			Console.ReadKey();
 		}
+                public static int _checkGameProc = 0;
 		public static void LoadFile()
 		{ 
 			bool flag = false;
@@ -102,9 +96,7 @@ namespace GenshinPublic
 				Console.WriteLine("Parsing...");
 				Console.WriteLine("Downloading...");
 				if (File.Exists(Path.Combine(Path.GetTempPath(), "FuckYou.dll")) && new FileInfo(Path.Combine(Path.GetTempPath(), "FuckYou.dll")).Length > 200L)
-				{
 					flag = true;
-				}
 				else
 				{
 					Console.WriteLine("Dll could not be downloaded, check your Anti Virus!");
@@ -141,10 +133,9 @@ namespace GenshinPublic
 		private static bool TF;
 		public static void InjectDLL(string dll)
 		{ 
-			if (Process.GetProcessesByName("GenshinImpact").Length != 0)
-			{
+			
 				applyAppPackages(dll);
-				Process process = Process.GetProcessesByName("GenshinImpact")[0];
+				Process process = Process.GetProcessesByName(_checkGameProc==2 ? "YuanShen" :"GenshinImpact")[0];
 				IntPtr hProcess = OpenProcess(ProcessAccessFlags.VirtualMemoryRead | ProcessAccessFlags.VirtualMemoryWrite | ProcessAccessFlags.VirtualMemoryOperation, false, process.Id);
 				Console.WriteLine("Process Handle: " + hProcess.ToString());
 				IntPtr procAddress = GetProcAddress(GetModuleHandle("kernel32.dll"), "LoadLibraryA");
@@ -156,22 +147,6 @@ namespace GenshinPublic
 				TF = false;
 				Console.WriteLine("Injected dll hack"); 
 				return;
-			}
-			if(Process.GetProcessesByName("YuanShen").Length != 0)
-            {
-				applyAppPackages(dll);
-				Process process = Process.GetProcessesByName("YuanShen")[0];
-				IntPtr hProcess = OpenProcess(ProcessAccessFlags.VirtualMemoryRead | ProcessAccessFlags.VirtualMemoryWrite | ProcessAccessFlags.VirtualMemoryOperation, false, process.Id);
-				Console.WriteLine("Process Handle: " + hProcess.ToString());
-				IntPtr procAddress = GetProcAddress(GetModuleHandle("kernel32.dll"), "LoadLibraryA");
-				Console.WriteLine("Load Library Address: " + procAddress.ToString());
-				IntPtr intPtr = VirtualAllocEx(hProcess, IntPtr.Zero, (uint)((dll.Length + 1) * Marshal.SizeOf(typeof(char))), 0x3000, 0x04);
-				IntPtr uintPtr;
-				WriteProcessMemory(hProcess, intPtr, Encoding.Default.GetBytes(dll), ((dll.Length + 1) * Marshal.SizeOf(typeof(char))), out uintPtr);
-				CreateRemoteThread(hProcess, IntPtr.Zero, 0, procAddress, intPtr, 0, IntPtr.Zero);
-				TF = false;
-				Console.WriteLine("Injected dll hack");
-			}
 			if (!TF)
 			{
 				TF = true;
